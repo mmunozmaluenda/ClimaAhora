@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0B0F19;
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+.ContainerFormCity {
+  margin-top: 3cap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.FormCity {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  background-color: #00354A;
+  padding: 10px;
+  border: 1px solid #0080AD;
+  border-radius: 40px;
+}
+
+.FormCity button {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.TbCity {
+  width: 40cap;
+  /* height: 5cap; */
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+}

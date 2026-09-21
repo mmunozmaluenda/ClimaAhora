@@ -1,0 +1,31 @@
+.TopbarContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.TopbarContainer div {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.SvgBar {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border: 1px solid #0080AD;
+  border-radius: 10px;
+  background: radial-gradient(#0080AD 2px, #0080AD 5%, #0B0F19 70%);
+}
+
+.HoraBar {
+  background-color: #00354A;
+  padding: 6px;
+  border-radius: 15px;
+  border: 1px solid #0080AD;
+}
