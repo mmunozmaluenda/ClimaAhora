@@ -1,75 +1,83 @@
-# React + TypeScript + Vite
+# ClimitaNow - Clima Ahora 🌤️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para consultar el clima actual de cualquier ciudad. Construida con **React**, **TypeScript** y **Vite**, usando la API gratuita de [Open-Meteo](https://open-meteo.com/).
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🔍 Búsqueda de ciudad por nombre (geocodificación en español).
+- 🌡️ Temperatura actual en grados Celsius.
+- 💧 Humedad relativa.
+- 🌧️ Precipitaciones (mm).
+- 💨 Velocidad del viento (km/h).
+- 🕒 Fecha y hora de la solicitud mostradas en la barra superior.
+- 📱 Interfaz responsive con animaciones de carga.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React](https://react.dev/) 19
+- [TypeScript](https://www.typescriptlang.org/) ~6.0
+- [Vite](https://vite.dev/) 8
+- ESLint 10
 
-## Expanding the ESLint configuration
+## APIs utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [Weather Forecast API](https://open-meteo.com/en/docs) - datos del clima actual.
+- [Geocoding API](https://open-meteo.com/en/docs/geocoding-api) - conversión de nombre de ciudad a coordenadas.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Requisitos previos
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (versión 20.19+ o 22.12+).
+- Bun (opcional, se incluye `bun.lock`).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instalación
 
+```bash
+# Con bun
+bun install
+
+# O con npm
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Uso
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Servidor de desarrollo (HMR)
+bun run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# También disponible con npm
+npm run dev
+```
+
+Abre `http://localhost:5173` en tu navegador, escribe el nombre de una ciudad y presiona la flecha.
+
+## Scripts
+
+| Comando            | Descripción                          |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Levanta el servidor de desarrollo    |
+| `npm run build`    | Compila TypeScript y genera el build |
+| `npm run preview`  | Previsualización del build           |
+| `npm run lint`     | Ejecuta ESLint                       |
+
+## Estructura del proyecto
 
 ```
+src/
+├── App.tsx                          # Componente principal (estado y flujo)
+└── components/
+    ├── TopBar/                      # Barra superior con fecha/hora de la solicitud
+    ├── GetCoordenadas/              # Convierte ciudad → coordenadas (Geocoding API)
+    └── GetWeather/                  # Muestra el clima actual (Weather API)
+```
+
+## Flujo de la aplicación
+
+1. El usuario ingresa el nombre de una ciudad.
+2. `GetCoordenadas` busca las coordenadas vía la *Geocoding API* de Open-Meteo.
+3. `GetWeather` usa esas coordenadas para consultar el clima actual en la *Weather API*.
+4. Los datos se muestran en tarjetas junto con la hora de la solicitud en la barra superior.
+
+## Licencia
+
+Datos meteorológicos proporcionados por [Open-Meteo](https://open-meteo.com/) (licencia [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
