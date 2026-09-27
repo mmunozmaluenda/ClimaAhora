@@ -9,20 +9,26 @@
   width: 40px;
 }
 
+.ContainerPrincipal {
+  display: flex;
+  justify-content: center;
+}
+
 .CardWeatherPpal {
   background-color: #171B26;
   border: solid 1px #2C303B;
   border-radius: 10px;
   padding: 1.5rem;
+  margin: 1.5cap;
 }
 
 .CardWeatherPpal h5 {
   color: #38BDF8;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .CardWeatherPpal h1 {
-  font-size: 70px;
+  font-size: 78px;
   margin-top: 5px;
 }
 
